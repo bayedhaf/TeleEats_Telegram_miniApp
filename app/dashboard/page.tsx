@@ -16,7 +16,7 @@ export default function UserDashboard() {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-      {/* 🔍 Search Bar */}
+      
       <div className="bg-white rounded-xl shadow-sm p-3 mb-6 flex items-center gap-2">
         <IoSearch className="text-gray-500 text-xl" />
         <input
@@ -27,7 +27,7 @@ export default function UserDashboard() {
         />
       </div>
 
-      {/* 🍔 Food Categories */}
+    
       <div className="flex overflow-x-auto gap-4 pb-4 scrollbar-hide">
         {foods.map((item) => (
           <div
@@ -65,7 +65,7 @@ export default function UserDashboard() {
         ))}
       </div>
 
-      {/* 🏷️ Active Category (Left-aligned section) */}
+     
       <div className="mt-10">
         {foods
           .filter((item) => item.name === activeCategory)
@@ -74,7 +74,7 @@ export default function UserDashboard() {
               key={item.name}
               className="flex flex-col sm:flex-row items-start gap-6 bg-white rounded-2xl shadow-md p-5"
             >
-              {/* Image Left */}
+            
               <div className="flex-shrink-0 w-full sm:w-1/2">
                 <Image
                   className="rounded-2xl object-cover w-full h-64"
