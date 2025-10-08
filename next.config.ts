@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
- images: {
+ images: { 
+  domains: [ 'dynamic-media-cdn.tripadvisor.com',
+             'images.unsplash.com',
+              'cdn.example.com' ],
     remotePatterns: [
       {
         protocol: 'https',
