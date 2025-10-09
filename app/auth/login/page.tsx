@@ -52,11 +52,17 @@ export default function LoginPage() {
       setSubmitMessage('✅ Login successful!')
       // Here you can add an API call (fetch/axios)
       const isLoginSuccessful = formData.phone === '0916656489' && formData.password === '1234'
+      const isLoginSuccessful1 = formData.phone === '0917656489' && formData.password === '1234'
 
       if (isLoginSuccessful) {
         setSubmitMessage('✅ Login successful! Redirecting...')
         setTimeout(() => {
           router.push('/dashboard') // ✅ Redirect user to dashboard
+        }, 1000)
+      } else if (isLoginSuccessful1) {
+        setSubmitMessage('✅ Login successful! Redirecting...')
+        setTimeout(() => {
+          router.push('/admin/dashboard') // ✅ Redirect user to dashboard
         }, 1000)
       } else {
         setSubmitMessage('❌ Invalid credentials. Please try again.')
