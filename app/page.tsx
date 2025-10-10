@@ -7,6 +7,7 @@ import Link from 'next/link'
 
 export default function Home() {
   const [isClient, setIsClient] = useState(false)
+  const [username,setUserName]=useState<string>('')
 
   useEffect(() => {
     setIsClient(true)
@@ -14,10 +15,13 @@ export default function Home() {
    
     if (typeof window !== 'undefined') {
       import('@twa-dev/sdk').then((WebApp) => {
-        WebApp.default.ready()
-        WebApp.default.expand()
-        WebApp.default.setBackgroundColor('#f8fafc')
+        const app= WebApp.default
+        app.ready()
+        app.expand()
+        app.setBackgroundColor('#f8fafc')
+        setUserName(app.initDataUnsafe?.user?.username || 'Guest')
       })
+       
     }
   }, [])
 
@@ -93,6 +97,7 @@ export default function Home() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black bg-gradient-to-r from-white to-cyan-100 bg-clip-text text-transparent drop-shadow-2xl mb-4">
               TeleEats
             </h1>
+             <h1 className="text-lg sm:text-xl font-medium">Welcome! {username}</h1> 
             <div className="flex items-center justify-center gap-2 text-cyan-200">
               <GiFoodTruck className="w-6 h-6" />
               <span className="text-lg font-medium">Food Delivery</span>
